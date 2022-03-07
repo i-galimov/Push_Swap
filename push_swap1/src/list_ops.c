@@ -1,15 +1,5 @@
 #include "push_swap.h"
 
-void    create_list(t_list **head, char **argv)
-{
-    int    i;
-
-    i = 1;
-    (*head) = ft_lstnew(ft_atoi(argv[1]));
-    while (argv[++i])
-        ft_lstadd_back(head, ft_lstnew(ft_atoi(argv[i])));
-}
-
 t_list	*ft_lstnew(int value)
 {
 	t_list	*lst;

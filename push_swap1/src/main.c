@@ -16,7 +16,6 @@ void    type_sort(t_list **a, t_all *s)
 
 int	main(int argc, char **argv)
 {
-
 	t_all   s;
 
 	if (argc < 2)
@@ -24,8 +23,8 @@ int	main(int argc, char **argv)
 	s.next = 0;
 	s.b = 0;
 	ft_arg_conv(0, argv, &s);
-	create_list(&s.a, argv);
-	// sort_array(argc, argv, &s.a);
+	save_value(argv, &s.a, &s);
+	sort_array(argv, &s.a, &s);
 	type_sort(&s.a, &s);
 	free_list(s.a);
 	printf("%d\n", s.len);
