@@ -16,7 +16,7 @@ char    *ft_arg_str(char **argv)
 	return (res);
 }
 
-int *ft_arg_conv(int *len, char **argv)
+int *ft_arg_conv(int len, char **argv, t_all *s)
 {
 	int     i;
 	int     *res;
@@ -28,20 +28,23 @@ int *ft_arg_conv(int *len, char **argv)
 	strs = ft_split(arg, ' ');
 	if (!strs)
 		ft_arg_error();
-	while (strs[*len])
-		(*len)++;
-	res = malloc(sizeof(int) * (*len));
+	while (strs[len])
+		len++;
+	res = malloc(sizeof(int) * len);
 	if (!res)
 		ft_arg_error();
-	while (i < (*len))
+	while (i < len)
 	{
 		res[i] = ft_atoi(strs[i]);
 		free(strs[i]);
 		i++;
 	}
+	s->len = i;
 	free(strs);
 	ft_check_sorted(res);
 	ft_check_dublicate(res);
+	for (int j = 0; j < i; j++)
+		printf("[%d] --> %d\n", j ,res[j]);
 	return (res);
 }
 

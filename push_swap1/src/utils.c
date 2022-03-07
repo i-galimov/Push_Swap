@@ -61,14 +61,30 @@ int ft_atoi(const char *str)
         if (res > 2147483647 || res < -2147483648)
             ft_arg_error();
     }
-    if (!(str[i] >= '0' && str[i] <= '9') && str[i] != '\0')
-        ft_arg_error();
     return (res);
 }
 
 void	ft_arg_error(void)
 {
     write(1, "Incorrect arguments\n", 20);
+    exit(1);
+}
+
+void	ft_arg_error1(void)
+{
+    write(1, "1\n", 2);
+    exit(1);
+}
+
+void	ft_arg_error2(void)
+{
+    write(1, "2\n", 2);
+    exit(1);
+}
+
+void	ft_arg_error3(void)
+{
+    write(1, "3\n", 2);
     exit(1);
 }
 

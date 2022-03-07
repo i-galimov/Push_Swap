@@ -20,7 +20,7 @@ typedef struct s_all
 	struct s_list	*a;
 	struct s_list	*b;
 	int				next;
-	int				num;
+	int				len;
 }			t_all;
 
 // list_ops.c
@@ -30,7 +30,7 @@ void	free_list(t_list *head);
 int		len_list(t_list *a);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 // main.c
-void	type_sort(t_list **a, int argc);
+void	type_sort(t_list **a, t_all *s);
 int		main(int argc, char **argv);
 // reverse_rotate.c
 void	ft_rra(t_list **a);
@@ -58,8 +58,12 @@ char	*ft_strdup(const char *s1);
 void	ft_arg_error(void);
 // parsing_arg.c
 char	*ft_arg_str(char **argv);
-int		*ft_arg_conv(int *len, char **argv);
+int		*ft_arg_conv(int len, char **argv, t_all *s);
 void	ft_check_sorted(int *res);
 void	ft_check_dublicate(int *res);
+
+void	ft_arg_error1(void);
+void	ft_arg_error2(void);
+void	ft_arg_error3(void);
 
 #endif
