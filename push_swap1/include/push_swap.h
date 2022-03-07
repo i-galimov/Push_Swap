@@ -66,4 +66,9 @@ void	ft_arg_error1(void);
 void	ft_arg_error2(void);
 void	ft_arg_error3(void);
 
+// sort_array.c
+void	define_index(t_list **a, int *arr, t_all *s);
+void	ft_swap(int    *a, int *b);
+void	sort_array(int argc, char **argv, t_list **a, t_all *s);
+
 #endif
