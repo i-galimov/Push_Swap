@@ -1,36 +1,10 @@
 #include "push_swap.h"
 
-void	save_value(char **argv, t_list **a, t_all *s)
-{
-	int		i;
-	int		*res;
-
-	res = ft_arg_conv(0, argv, s);
-    i = 0;
-    (*a) = ft_lstnew(res[i]);
-    while (i < s->len)
-	{
-        ft_lstadd_back(a, ft_lstnew(res[i]));
-		i++;
-	}
-	free(res);
-}
-
-// void    create_list(t_list **head, char **argv)
-// {
-//     int    i;
-
-//     i = 1;
-//     (*head) = ft_lstnew(ft_atoi(argv[1]));
-//     while (argv[++i])
-//         ft_lstadd_back(head, ft_lstnew(ft_atoi(argv[i])));
-// }
-
 void	define_index(t_list **a, int *arr, t_all *s)
 {
-	t_list	*tmp;
-	int		i;
-	int		size;
+	t_list    *tmp;
+	int        i;
+	int        size;
 
 	size = s->len;
 	tmp = *a;
@@ -59,7 +33,7 @@ void	ft_swap(int *a, int *b)
 	*b = tmp;
 }
 
-void	sort_array(char **argv, t_list **a, t_all *s)
+void	sort_array(int argc, char **argv, t_list **a, t_all *s)
 {
 	int		*res;
 	int		*arr;
