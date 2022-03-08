@@ -1,19 +1,29 @@
 #include "push_swap.h"
 
-void	save_value(char **argv, t_list **a, t_all *s)
+void	save_value(t_list **a, t_all *s)
 {
 	int		i;
 	int		*res;
 
-	res = ft_arg_conv(0, argv, s);
-    i = 0;
-    (*a) = ft_lstnew(res[i]);
+	res = s->arg;
+    // (*a) = ft_lstnew(res[0]);
+    // i = 1;
+	i = 0;
     while (i < s->len)
 	{
         ft_lstadd_back(a, ft_lstnew(res[i]));
 		i++;
 	}
-	free(res);
+	// t_list	*tmp;
+	// tmp = *a;
+	// while (tmp->next != NULL)
+	// {
+	// 	printf("val = %d\n", tmp->value);
+	// 	printf("ind = %d\n", tmp->index);
+	// 	tmp = tmp->next;
+	// }
+	// printf("%d\n", tmp->value);
+	// printf("ind = %d\n", tmp->index);
 }
 
 // void    create_list(t_list **head, char **argv)
@@ -59,7 +69,7 @@ void	ft_swap(int *a, int *b)
 	*b = tmp;
 }
 
-void	sort_array(char **argv, t_list **a, t_all *s)
+void	sort_array(t_list **a, t_all *s)
 {
 	int		*res;
 	int		*arr;
@@ -68,7 +78,7 @@ void	sort_array(char **argv, t_list **a, t_all *s)
 
 	i = 0;
 	j = 0;
-	res = ft_arg_conv(0, argv, s);
+	res = s->arg;
 	arr = malloc(sizeof(int) * (s->len));
 	while (j < s->len)
 		arr[i++] = res[j++];
@@ -76,7 +86,7 @@ void	sort_array(char **argv, t_list **a, t_all *s)
 	while (i != s->len)
 	{
 		j = 0;
-		while (j != s->len - 2)
+		while (j != s->len - 1)
 		{
 			if (arr[j] > arr[j + 1])
 				ft_swap(&arr[j], &arr[j + 1]);
@@ -84,7 +94,25 @@ void	sort_array(char **argv, t_list **a, t_all *s)
 		}
 		i++;
 	}
+
+	// int y = 0;
+	// while(y < s->len)
+	// {
+	// 	printf("arr[y] = %d\n", arr[y]);
+	// 	y++;
+	// }
+	
 	define_index(a, arr, s);
 	free(arr);
-	free(res);
+
+	t_list	*tmp;
+	tmp = *a;
+	while (tmp->next != NULL)
+	{
+		printf("val = %d\n", tmp->value);
+		printf("ind = %d\n\n", tmp->index);
+		tmp = tmp->next;
+	}
+	printf("val = %d\n", tmp->value);
+	printf("ind = %d\n", tmp->index);
 }

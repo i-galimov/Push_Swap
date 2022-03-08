@@ -23,10 +23,11 @@ int	main(int argc, char **argv)
 	s.next = 0;
 	s.b = 0;
 	ft_arg_conv(0, argv, &s);
-	save_value(argv, &s.a, &s);
-	sort_array(argv, &s.a, &s);
+	save_value(&s.a, &s);
+	sort_array(&s.a, &s);
 	type_sort(&s.a, &s);
 	free_list(s.a);
-	printf("%d\n", s.len);
+	free (s.arg);
+	// printf("%d\n", s.len);
 	return (0);
 }

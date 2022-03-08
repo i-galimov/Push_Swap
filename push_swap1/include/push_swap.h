@@ -21,6 +21,7 @@ typedef struct s_all
 	struct s_list	*b;
 	int				next;
 	int				len;
+	int				*arg;
 }			t_all;
 
 // list_ops.c
@@ -58,18 +59,18 @@ char	*ft_strdup(const char *s1);
 void	ft_arg_error(void);
 // parsing_arg.c
 char	*ft_arg_str(char **argv);
-int		*ft_arg_conv(int len, char **argv, t_all *s);
-void	ft_check_sorted(int *res);
-void	ft_check_dublicate(int *res);
+void	ft_arg_conv(int len, char **argv, t_all *s);
+void	ft_check_sorted(t_all *s);
+void    ft_check_dublicate(int *res, int *len);
 
 void	ft_arg_error1(void);
 void	ft_arg_error2(void);
 void	ft_arg_error3(void);
 
 // sort_array.c
-void	save_value(char **argv, t_list **a, t_all *s);
+void	save_value(t_list **a, t_all *s);
 void	define_index(t_list **a, int *arr, t_all *s);
 void	ft_swap(int *a, int *b);
-void	sort_array(char **argv, t_list **a, t_all *s);
+void	sort_array(t_list **a, t_all *s);
 
 #endif
