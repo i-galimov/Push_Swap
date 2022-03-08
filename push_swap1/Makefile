@@ -9,7 +9,7 @@ NAME					:=	push_swap
 
 CC						:=	clang
 OBJ_DIR					:=	obj
-FLAGS					:=	-Wall -Wextra -Werror
+FLAGS					:=	-Wall -Wextra -Werror -g
 INCLUDE					:=	include
 
 VPATH					:=	src \
