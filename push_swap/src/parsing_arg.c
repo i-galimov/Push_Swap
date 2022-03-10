@@ -6,7 +6,7 @@
 /*   By: phella <phella@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 10:53:55 by phella            #+#    #+#             */
-/*   Updated: 2022/03/10 13:43:23 by phella           ###   ########.fr       */
+/*   Updated: 2022/03/10 16:53:37 by phella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,6 @@ void	ft_arg_conv(int len, int i, char **argv, t_all *s)
 	s->arg = res;
 	free(strs);
 	free(arg);
-	ft_check_sorted(s);
 	ft_check_dublicate(s->arg, &(s->len));
+	ft_check_sorted(s);
 }
