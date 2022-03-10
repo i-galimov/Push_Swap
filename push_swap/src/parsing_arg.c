@@ -6,7 +6,7 @@
 /*   By: phella <phella@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 10:53:55 by phella            #+#    #+#             */
-/*   Updated: 2022/03/10 11:17:06 by phella           ###   ########.fr       */
+/*   Updated: 2022/03/10 13:43:23 by phella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_check_sorted(t_all *s)
 			return ;
 		i++;
 	}
-	ft_arg_error();
+	exit(1);
 }
 
 void	ft_check_dublicate(int *res, int *len)
