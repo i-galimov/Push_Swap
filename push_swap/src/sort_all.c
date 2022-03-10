@@ -6,33 +6,33 @@
 /*   By: phella <phella@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 10:54:29 by phella            #+#    #+#             */
-/*   Updated: 2022/03/10 11:01:32 by phella           ###   ########.fr       */
+/*   Updated: 2022/03/10 13:08:07 by phella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	push_to_sort(t_all *s, int flag)
+int	push_sorted(t_all *s, int flag)
 {
 	if (flag)
 		ft_pa(&s->a, &s->b);
 	s->a->flag = -1;
 	ft_ra(&s->a);
 	s->next++;
-	ft_next_num(s);
+	ft_get_next(s);
 	return (1);
 }
 
-int	ft_next_num(t_all *s)
+int	ft_get_next(t_all *s)
 {
 	if (s->a->index == s->next)
-		return (push_to_sort(s, 0));
+		return (push_sorted(s, 0));
 	if (len_list(s->b) > 0 && s->b->index == s->next)
-		return (push_to_sort(s, 1));
-	if (len_list(s->b) >= 3 && get_last(s->b, 0, 0, 0)->index == s->next)
+		return (push_sorted(s, 1));
+	if (len_list(s->b) >= 3 && get_last_b(s->b, 0, 0, 0)->index == s->next)
 	{
 		ft_rrb(&s->b);
-		return (push_to_sort(s, 1));
+		return (push_sorted(s, 1));
 	}
 	if (len_list(s->b) > 1 && s->b->next->index == s->next + 1
 		&& s->a->next->index == s->next)
@@ -41,7 +41,7 @@ int	ft_next_num(t_all *s)
 		s->a->flag = -1;
 		ft_ra(&s->a);
 		s->next++;
-		return (push_to_sort(s, 1));
+		return (push_sorted(s, 1));
 	}
 	return (0);
 }
@@ -64,7 +64,7 @@ void	sort_stack_b(t_all *s, int flag)
 			if (s->b->index >= mid || s->b->index == s->next)
 			{
 				ft_pa(&s->a, &s->b);
-				ft_next_num(s);
+				ft_get_next(s);
 			}
 			else if (s->b)
 				ft_rb(&s->b);
@@ -89,7 +89,7 @@ void	sort_all(t_all *s)
 	{
 		flag = s->a->flag;
 		while (s->a && s->a->flag == flag && s->next > 0)
-			if (!ft_next_num(s))
+			if (!ft_get_next(s))
 				ft_pb(&s->a, &s->b);
 		sort_stack_b(s, flag);
 	}

@@ -6,7 +6,7 @@
 /*   By: phella <phella@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 11:07:02 by phella            #+#    #+#             */
-/*   Updated: 2022/03/10 11:17:40 by phella           ###   ########.fr       */
+/*   Updated: 2022/03/10 13:08:07 by phella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,12 @@ void	ft_sort4(t_list **a, t_list **b);
 void	ft_move5(t_list **a, t_list **b);
 void	ft_sort5(t_list **a, t_list **b);
 // sort_all.c
-int		push_to_sort(t_all *s, int flag);
-int		ft_next_num(t_all *s);
+int		push_sorted(t_all *s, int flag);
+int		ft_get_next(t_all *s);
 void	sort_stack_b(t_all *s, int flag);
 void	sort_all(t_all *s);
 // list_ops.2
 int		check_value(t_list *list, int *n, int value);
-t_list	*get_last(t_list *begin_list, int data, int *n, int flag);
+t_list	*get_last_b(t_list *begin_list, int value, int *n, int flag);
 
 #endif
