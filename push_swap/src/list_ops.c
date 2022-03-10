@@ -6,7 +6,7 @@
 /*   By: phella <phella@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 10:51:30 by phella            #+#    #+#             */
-/*   Updated: 2022/03/10 11:00:56 by phella           ###   ########.fr       */
+/*   Updated: 2022/03/10 13:19:12 by phella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_list	*ft_lstnew(int value)
 		return (NULL);
 	lst->next = NULL;
 	lst->value = value;
+	lst->flag = 0;
 	return (lst);
 }
 
